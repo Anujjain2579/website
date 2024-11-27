@@ -79,7 +79,7 @@ body {
     content: '';
     position: absolute;
     background: var(--light-violet);
-    width:90px; /* Calculated using pythagoras theorem for diagonal */
+    width:50px; /* Calculated using pythagoras theorem for diagonal */
     height: 2px;
     z-index: -1;
 }
@@ -87,30 +87,30 @@ body {
 /* Top-left to center */
 .matrix-cell:nth-child(1)::after {
     bottom: -5px;
-    right: -125px;
-    top: 105px;
+    right: -42px;
+    top: 63px;
     transform: rotate(45deg);
 }
 
 /* Top-right to center */
 .matrix-cell:nth-child(3)::after {
-    bottom: -35px;
-    left: -127px;
-    right: 35px;
+    bottom: -15px;
+    left: -42px;
+    right: 63px;
     transform: rotate(-45deg);
 }
 
 /* Bottom-left to center */
 .matrix-cell:nth-child(7)::after {
-    top: -35px;
-    right: -127px;
+    top: -15px;
+    right: -42px;
     transform: rotate(-45deg);
 }
 
 /* Bottom-right to center */
 .matrix-cell:nth-child(9)::after {
-    top: -35px;
-    left: -127px;
+    top: -15px;
+    left: -42px;
     transform: rotate(45deg);
 }
 
