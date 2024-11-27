@@ -20,18 +20,6 @@ const contentData = {
     // Add other sections similarly
 };
 
-// Scroll smoothly to section when clicking a matrix cell
-document.querySelectorAll('.matrix-cell').forEach(cell => {
-    cell.addEventListener('click', () => {
-        const category = cell.getAttribute('data-category');
-        const section = document.getElementById(`${category}-section`);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-
 // Add cursor effect
 const cursor = document.createElement('div');
 cursor.classList.add('custom-cursor');
@@ -43,13 +31,17 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Modified click handler
-document.querySelectorAll('.matrix-cell').forEach(cell => {
+// Scroll smoothly to section when clicking a matrix cell
+document.querySelectorAll('.matrix-cell, .matrix-center').forEach(cell => {
     cell.addEventListener('click', () => {
-        const category = cell.getAttribute('data-category');
-        const section = document.getElementById(category + '-section');
-        section.scrollIntoView({ behavior: 'smooth' });
+        const targetId = cell.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 });
+
 
 function closeDisplay() {
     document.getElementById('content-display').classList.add('hidden');

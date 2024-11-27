@@ -16,12 +16,14 @@ body {
 .header {
     text-align: center;
     margin: 20px 0;
+    padding: 0 20px; 
 }
 
 .matrix-container {
     display: flex;
     justify-content: center;
     margin: 50px 0;
+    padding: 0 20px;
 }
 
 .matrix-grid {
@@ -44,7 +46,12 @@ body {
     border-radius: 5px;
     position: relative;
 }
-
+.matrix-cell:hover,
+.matrix-center:hover {
+    background-color: var(--secondary-violet);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--light-violet);
+}
 /* Center cell specific styling */
 .matrix-center {
     background: url('arrow.jpg') no-repeat center center;
@@ -198,4 +205,16 @@ body {
 .content-section p {
     margin: 10px 0;
     line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .matrix-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjusts grid for smaller screens */
+        gap: 20px;
+    }
+
+    .header h1,
+    .header h2 {
+        font-size: 1.5em; /* Scales font size for mobile */
+    }
 }
