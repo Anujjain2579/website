@@ -16,43 +16,44 @@ body {
 .header {
     text-align: center;
     margin: 20px 0;
-    padding: 0 20px; 
+    padding: 0 20px; /* Ensures content fits on mobile */
 }
 
 .matrix-container {
     display: flex;
     justify-content: center;
     margin: 50px 0;
-    padding: 0 20px;
+    padding: 0 10px; /* Added padding to avoid content getting cut off */
 }
 
 .matrix-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    grid-template-columns: repeat(3, 1fr); /* Default for larger screens */
+    gap: 25px; /* Reduced gap for better fit on smaller screens */
     max-width: 800px;
+    width: 100%; /* Ensures responsiveness */
     margin: auto;
-    position: relative;
 }
 
 .matrix-cell,
 .matrix-center {
     background-color: var(--bg-white);
     border: 2px solid var(--primary-violet);
-    padding: 20px;
+    padding: 15px; /* Reduced padding for smaller cells */
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 5px;
     position: relative;
 }
+
 .matrix-cell:hover,
 .matrix-center:hover {
     background-color: var(--secondary-violet);
     transform: scale(1.05);
     box-shadow: 0 0 15px var(--light-violet);
 }
-/* Center cell specific styling */
+
 .matrix-center {
     background: url('arrow.jpg') no-repeat center center;
     background-size: cover;
@@ -78,7 +79,7 @@ body {
     content: '';
     position: absolute;
     background: var(--light-violet);
-    width:190px; /* Calculated using pythagoras theorem for diagonal */
+    width:90px; /* Calculated using pythagoras theorem for diagonal */
     height: 2px;
     z-index: -1;
 }
@@ -209,12 +210,43 @@ body {
 
 @media (max-width: 768px) {
     .matrix-grid {
-        grid-template-columns: repeat(2, 1fr); /* Adjusts grid for smaller screens */
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid to 2 columns */
+        gap: 15px; /* Smaller gap for tighter layout */
+    }
+
+    .matrix-cell,
+    .matrix-center {
+        padding: 10px; /* Further reduce padding for smaller screens */
+        font-size: 0.9em; /* Scale down font size */
     }
 
     .header h1,
     .header h2 {
-        font-size: 1.5em; /* Scales font size for mobile */
+        font-size: 1.2em; /* Adjust font sizes for smaller screens */
+    }
+
+    .matrix-container {
+        padding: 0 15px; /* Ensure padding fits within screen boundaries */
+    }
+}
+
+@media (max-width: 480px) {
+    .matrix-grid {
+        grid-template-columns: 1fr; /* Single column layout for very small screens */
+        gap: 10px;
+    }
+
+    .matrix-cell,
+    .matrix-center {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    .header h1 {
+        font-size: 1.1em;
+    }
+
+    .header h2 {
+        font-size: 1em;
     }
 }
