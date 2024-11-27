@@ -21,19 +21,18 @@ body {
 .matrix-container {
     display: flex;
     justify-content: center;
-    margin: 50px 0; /* Increased spacing */
+    margin: 50px 0;
 }
 
 .matrix-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px; /* Increased spacing between cells */
+    gap: 50px;
     max-width: 800px;
     margin: auto;
     position: relative;
 }
 
-/* Styling for matrix cells */
 .matrix-cell,
 .matrix-center {
     background-color: var(--bg-white);
@@ -43,114 +42,114 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 5px;
-    position: relative; /* For positioning lines */
+    position: relative;
 }
 
-.matrix-cell:hover,
-.matrix-center:hover {
-    background-color: var(--secondary-violet);
-    transform: scale(1.05);
-    box-shadow: 0 0 15px var(--light-violet);
-}
-
-/* Background image for the center cell */
+/* Center cell specific styling */
 .matrix-center {
     background: url('arrow.jpg') no-repeat center center;
     background-size: cover;
     color: var(--bg-white);
 }
 
-/* Lines connecting to the diagonal cells */
-.matrix-grid::before,
-.matrix-grid::after {
+/* Lines for diagonal connections */
+.matrix-grid::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    width: calc(100% + 50px);
+    height: calc(100% + 50px);
+    top: -25px;
+    left: -25px;
+    pointer-events: none;
 }
 
-.matrix-cell:nth-child(1)::before,
-.matrix-cell:nth-child(3)::before,
-.matrix-cell:nth-child(7)::before,
-.matrix-cell:nth-child(9)::before {
+/* Diagonal lines */
+.matrix-cell:nth-child(1)::after,
+.matrix-cell:nth-child(3)::after,
+.matrix-cell:nth-child(7)::after,
+.matrix-cell:nth-child(9)::after {
     content: '';
     position: absolute;
-    width: 2px;
-    height: 50px;
     background: var(--light-violet);
+    width:190px; /* Calculated using pythagoras theorem for diagonal */
+    height: 2px;
     z-index: -1;
-    transform-origin: center center;
 }
 
-.matrix-cell:nth-child(1)::before {
-    top: 100%;
-    left: 100%;
-    transform: rotate(-45deg);
-}
-
-.matrix-cell:nth-child(3)::before {
-    top: 100%;
-    left: 0;
+/* Top-left to center */
+.matrix-cell:nth-child(1)::after {
+    bottom: -5px;
+    right: -125px;
+    top: 105px;
     transform: rotate(45deg);
 }
 
-.matrix-cell:nth-child(7)::before {
-    top: 0;
-    left: 100%;
-    transform: rotate(45deg);
-}
-
-.matrix-cell:nth-child(9)::before {
-    top: 0;
-    left: 0;
+/* Top-right to center */
+.matrix-cell:nth-child(3)::after {
+    bottom: -35px;
+    left: -127px;
+    right: 35px;
     transform: rotate(-45deg);
 }
 
-/* Lines from the center cell to adjacent cells (N, E, S, W) */
-.matrix-center::after {
+/* Bottom-left to center */
+.matrix-cell:nth-child(7)::after {
+    top: -35px;
+    right: -127px;
+    transform: rotate(-45deg);
+}
+
+/* Bottom-right to center */
+.matrix-cell:nth-child(9)::after {
+    top: -35px;
+    left: -127px;
+    transform: rotate(45deg);
+}
+
+/* Straight lines (N,E,S,W) */
+.matrix-cell:nth-child(2)::after,
+.matrix-cell:nth-child(4)::after,
+.matrix-cell:nth-child(6)::after,
+.matrix-cell:nth-child(8)::after {
     content: '';
     position: absolute;
-    width: 2px;
-    height: 50px;
     background: var(--light-violet);
     z-index: -1;
 }
 
-.matrix-center::before {
-    content: '';
-    position: absolute;
+/* North line */
+.matrix-cell:nth-child(2)::after {
+    width: 2px;
+    height: 50px;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* South line */
+.matrix-cell:nth-child(8)::after {
+    width: 2px;
+    height: 50px;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* West line */
+.matrix-cell:nth-child(4)::after {
     width: 50px;
     height: 2px;
-    background: var(--light-violet);
-    z-index: -1;
-}
-
-/* Line to the top (North) */
-.matrix-center::before {
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Line to the bottom (South) */
-.matrix-center:nth-child(4)::after {
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Line to the left (West) */
-.matrix-center:nth-child(2)::before {
     top: 50%;
-    left: -25px;
+    right: -50px;
     transform: translateY(-50%);
 }
 
-/* Line to the right (East) */
-.matrix-center:nth-child(6)::after {
+/* East line */
+.matrix-cell:nth-child(6)::after {
+    width: 50px;
+    height: 2px;
     top: 50%;
-    right: -25px;
+    left: -50px;
     transform: translateY(-50%);
 }
 
