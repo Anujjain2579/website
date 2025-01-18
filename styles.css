@@ -208,6 +208,49 @@ body {
     line-height: 1.6;
 }
 
+.topmate-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #f8f4eb; /* Light cream background */
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #4a4a4a;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.topmate-link a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 90%;
+    margin-right: 10px; /* Ensures the image stays small */
+}
+
+.topmate-link span {
+    font-weight: 500;
+    color: #4a4a4a;
+}
+
+.arrow-icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    color: #8b5e3c; /* Brown arrow color */
+}
+
 @media (max-width: 768px) {
     .matrix-grid {
         grid-template-columns: repeat(2, 1fr); /* Adjust grid to 2 columns */
