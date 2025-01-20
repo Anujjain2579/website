@@ -208,6 +208,40 @@ body {
     line-height: 1.6;
 }
 
+/* Skills Tag Styling */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.skill-title {
+    font-weight: bold;
+    color: var(--dark-violet);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.skills-box {
+    background-color: rgba(105, 32, 177, 0.2); /* Light shaded background */
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: auto;
+}
+
+.skill-tag {
+    background-color: var(--secondary-violet);
+    color: var(--bg-white);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: bold;
+    display: inline-block;
+}
+
 .topmate-link {
     position: fixed;
     top: 20px;
