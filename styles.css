@@ -16,22 +16,22 @@ body {
 .header {
     text-align: center;
     margin: 20px 0;
-    padding: 0 20px; /* Ensures content fits on mobile */
+    padding: 0 20px;
 }
 
 .matrix-container {
     display: flex;
     justify-content: center;
     margin: 50px 0;
-    padding: 0 10px; /* Added padding to avoid content getting cut off */
+    padding: 0 10px;
 }
 
 .matrix-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default for larger screens */
-    gap: 25px; /* Reduced gap for better fit on smaller screens */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
     max-width: 800px;
-    width: 100%; /* Ensures responsiveness */
+    width: 100%;
     margin: auto;
 }
 
@@ -39,7 +39,7 @@ body {
 .matrix-center {
     background-color: var(--bg-white);
     border: 2px solid var(--primary-violet);
-    padding: 15px; /* Reduced padding for smaller cells */
+    padding: 15px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -79,7 +79,7 @@ body {
     content: '';
     position: absolute;
     background: var(--light-violet);
-    width:50px; /* Calculated using pythagoras theorem for diagonal */
+    width:50px;
     height: 2px;
     z-index: -1;
 }
@@ -224,7 +224,7 @@ body {
 }
 
 .skills-box {
-    background-color: rgba(105, 32, 177, 0.2); /* Light shaded background */
+    background-color: rgba(105, 32, 177, 0.2);
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 10px;
