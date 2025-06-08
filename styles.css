@@ -198,9 +198,10 @@ body {
     flex-direction: row-reverse;
 }
 
-.content-section h2 {
+.content-section h3 {
     color: var(--dark-violet);
     margin-bottom: 10px;
+    line-height: 1.75;
 }
 
 .content-section p {
