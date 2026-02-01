@@ -79,7 +79,7 @@ body {
     content: '';
     position: absolute;
     background: var(--light-violet);
-    width:50px;
+    width: 90px;
     height: 2px;
     z-index: -1;
 }
@@ -128,8 +128,8 @@ body {
 /* North line */
 .matrix-cell:nth-child(2)::after {
     width: 2px;
-    height: 50px;
-    bottom: -50px;
+    height: 60px;
+    bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -137,27 +137,27 @@ body {
 /* South line */
 .matrix-cell:nth-child(8)::after {
     width: 2px;
-    height: 50px;
-    top: -50px;
+    height: 60px;
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 /* West line */
 .matrix-cell:nth-child(4)::after {
-    width: 50px;
+    width: 60px;
     height: 2px;
     top: 50%;
-    right: -50px;
+    right: -60px;
     transform: translateY(-50%);
 }
 
 /* East line */
 .matrix-cell:nth-child(6)::after {
-    width: 50px;
+    width: 60px;
     height: 2px;
     top: 50%;
-    left: -50px;
+    left: -60px;
     transform: translateY(-50%);
 }
 
